@@ -7,7 +7,7 @@ import yfinance as yf
 from plotly import graph_objs as go
 import stock_utils
 from stock_utils import *
-from datetime import datetime
+from datetime import datetime, timedelta
 
 START = "2010-01-01"
 TODAY = datetime.now()
@@ -285,7 +285,9 @@ if st.session_state.TRAIN_JOB:
     # Show and plot forecast
     #st.subheader('Forecast data')
     #st.write(df_f.tail())
-    
+    today = datetime.now()
+    next_day = today+timedelta(days=n_forecast)
+    df_f['Date'] = pd.bdate_range(next_day,periods=n_forecast)
     plot_forecast()
     
     bar.progress(100)
