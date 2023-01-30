@@ -2,8 +2,8 @@ import streamlit as st
 from datetime import date
 import numpy as np
 import yfinance as yf
-from fbprophet import Prophet
-from fbprophet.plot import plot_plotly
+#from fbprophet import Prophet
+#from fbprophet.plot import plot_plotly
 from plotly import graph_objs as go
 import stock_utils
 from stock_utils import *
@@ -162,11 +162,11 @@ if st.session_state.TRAIN_JOB:
             x = data[['Close','50D-SMA','50D-EMA','rsi']]
             features = ['Close','50D-SMA','50D-EMA','rsi']
         elif forecast=='30 days':
-            x = data[['Close','50D-SMA','50D-EMA','rsi','rsicat']]
-            features = ['Close','50D-SMA','50D-EMA','rsi','rsicat']
+            x = data[['Close','50D-EMA','rsi','vwap']]
+            features = ['Close','50D-EMA','rsi','vwap']
         elif forecast=='60 days':
-            x = data[['Close','50D-SMA','50D-EMA','rsi','rsicat']]
-            features = ['Close','50D-SMA','50D-EMA','rsi','rsicat']
+            x = data[['Close','50D-SMA','50D-EMA','rsi','vwap']]
+            features = ['Close','50D-SMA','50D-EMA','rsi','vwap']
     
     elif SYMB=='AAPL':
         if forecast=='1 day':
@@ -283,8 +283,8 @@ if st.session_state.TRAIN_JOB:
     #st.write(df_p.tail())
     df_f.drop(columns=['Actual'],inplace=True)
     # Show and plot forecast
-    st.subheader('Forecast data')
-    st.write(df_f.tail())
+    #st.subheader('Forecast data')
+    #st.write(df_f.tail())
     
     plot_forecast()
     
