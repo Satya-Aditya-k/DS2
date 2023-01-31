@@ -7,7 +7,7 @@ import yfinance as yf
 from plotly import graph_objs as go
 import stock_utils
 from stock_utils import *
-from datetime import datetime
+from datetime import datetime, timedelta
 
 START = "2010-01-01"
 TODAY = datetime.now()
