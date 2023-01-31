@@ -286,7 +286,7 @@ if st.session_state.TRAIN_JOB:
     st.subheader('Forecast data')
     st.write(df_f.head())
     today = datetime.now()
-    next_day = today+timedelta(days=n_forecast)
+    next_day = today+timedelta(days=1)
     df_f['Date'] = pd.bdate_range(next_day,periods=n_forecast)
     plot_forecast()
     
