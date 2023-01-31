@@ -239,9 +239,9 @@ if st.session_state.TRAIN_JOB:
     
     if SYMB=='AMZN':
         if forecast=='1 day':
-            stock_model = tf.keras.models.load_model('saved_models/AMZN_1day_model')
+            stock_model = tf.keras.models.load_model('saved_models/AMZN_1day_Bi_model')
         elif forecast=='7 days':
-            stock_model = tf.keras.models.load_model('saved_models/AMZN_7day_model')
+            stock_model = tf.keras.models.load_model('saved_models/AMZN_7day_Bi_model')
         elif forecast=='15 days':
             stock_model = tf.keras.models.load_model('saved_models/AMZN_15day_model')
         elif forecast=='30 days':
@@ -253,7 +253,7 @@ if st.session_state.TRAIN_JOB:
         if forecast=='1 day':
             stock_model = tf.keras.models.load_model('saved_models/GOOG_1day_model')
         elif forecast=='7 days':
-            stock_model = tf.keras.models.load_model('saved_models/GOOG_7day_model')
+            stock_model = tf.keras.models.load_model('saved_models/GOOG_7day_Bi_model')
         elif forecast=='15 days':
             stock_model = tf.keras.models.load_model('saved_models/GOOG_15day_model')
         elif forecast=='30 days':
@@ -263,13 +263,13 @@ if st.session_state.TRAIN_JOB:
     
     else:
         if forecast=='1 day':
-            stock_model = tf.keras.models.load_model('saved_models/AAPL_1day_model')
+            stock_model = tf.keras.models.load_model('saved_models/AAPL_1day_Bi_model')
         elif forecast=='7 days':
             stock_model = tf.keras.models.load_model('saved_models/AAPL_7day_model')
         elif forecast=='15 days':
             stock_model = tf.keras.models.load_model('saved_models/AAPL_15day_model')
         elif forecast=='30 days':
-            stock_model = tf.keras.models.load_model('saved_models/AAPL_30day_model')
+            stock_model = tf.keras.models.load_model('saved_models/AAPL_30day_Bi_model')
         elif forecast=='60 days':
             stock_model = tf.keras.models.load_model('saved_models/AAPL_60day_model')
     
