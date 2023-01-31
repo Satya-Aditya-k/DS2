@@ -170,8 +170,8 @@ if st.session_state.TRAIN_JOB:
     
     elif SYMB=='AAPL':
         if forecast=='1 day':
-            x = data[['Close','50D-SMA','50D-EMA','rsi']]
-            features = ['Close','50D-SMA','50D-EMA','rsi']
+            x = data[['Close','50D-SMA','50D-EMA','rsi','rsicat']]
+            features = ['Close','50D-SMA','50D-EMA','rsi','rsicat']
         elif forecast=='7 days':
             x = data[['Close','50D-SMA','50D-EMA','rsi','rsicat']]
             features = ['Close','50D-SMA','50D-EMA','rsi','rsicat']
