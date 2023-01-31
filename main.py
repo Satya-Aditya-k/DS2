@@ -131,8 +131,9 @@ if st.session_state.TRAIN_JOB:
     bar=st.progress(0)
     
     data = feature_creation(data)
-    data.bfill(inplace=True)
     
+    data.bfill(inplace=True)
+    data.ffill(inplace=True)
     # scale the data
     if SYMB=='GOOG':
         if forecast=='1 day':
