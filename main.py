@@ -170,8 +170,8 @@ if st.session_state.TRAIN_JOB:
     
     elif SYMB=='AAPL':
         if forecast=='1 day':
-            x = data[['Close','50D-SMA','50D-EMA','rsi']]
-            features = ['Close','50D-SMA','50D-EMA','rsi']
+            x = data[['Close','50D-SMA','50D-EMA','rsi','rsicat']]
+            features = ['Close','50D-SMA','50D-EMA','rsi','rsicat']
         elif forecast=='7 days':
             x = data[['Close','50D-SMA','50D-EMA','rsi','rsicat']]
             features = ['Close','50D-SMA','50D-EMA','rsi','rsicat']
@@ -239,9 +239,9 @@ if st.session_state.TRAIN_JOB:
     
     if SYMB=='AMZN':
         if forecast=='1 day':
-            stock_model = tf.keras.models.load_model('saved_models/AMZN_1day_model')
+            stock_model = tf.keras.models.load_model('saved_models/AMZN_1day_Bi_model')
         elif forecast=='7 days':
-            stock_model = tf.keras.models.load_model('saved_models/AMZN_7day_model')
+            stock_model = tf.keras.models.load_model('saved_models/AMZN_7day_Bi_model')
         elif forecast=='15 days':
             stock_model = tf.keras.models.load_model('saved_models/AMZN_15day_model')
         elif forecast=='30 days':
@@ -253,7 +253,7 @@ if st.session_state.TRAIN_JOB:
         if forecast=='1 day':
             stock_model = tf.keras.models.load_model('saved_models/GOOG_1day_model')
         elif forecast=='7 days':
-            stock_model = tf.keras.models.load_model('saved_models/GOOG_7day_model')
+            stock_model = tf.keras.models.load_model('saved_models/GOOG_7day_Bi_model')
         elif forecast=='15 days':
             stock_model = tf.keras.models.load_model('saved_models/GOOG_15day_model')
         elif forecast=='30 days':
@@ -263,13 +263,13 @@ if st.session_state.TRAIN_JOB:
     
     else:
         if forecast=='1 day':
-            stock_model = tf.keras.models.load_model('saved_models/AAPL_1day_model')
+            stock_model = tf.keras.models.load_model('saved_models/AAPL_1day_Bi_model')
         elif forecast=='7 days':
             stock_model = tf.keras.models.load_model('saved_models/AAPL_7day_model')
         elif forecast=='15 days':
             stock_model = tf.keras.models.load_model('saved_models/AAPL_15day_model')
         elif forecast=='30 days':
-            stock_model = tf.keras.models.load_model('saved_models/AAPL_30day_model')
+            stock_model = tf.keras.models.load_model('saved_models/AAPL_30day_Bi_model')
         elif forecast=='60 days':
             stock_model = tf.keras.models.load_model('saved_models/AAPL_60day_model')
     
@@ -283,10 +283,10 @@ if st.session_state.TRAIN_JOB:
     #st.write(df_p.tail())
     df_f.drop(columns=['Actual'],inplace=True)
     # Show and plot forecast
-    #st.subheader('Forecast data')
-    #st.write(df_f.tail())
+    st.subheader('Forecast data')
+    st.write(df_f.head())
     today = datetime.now()
-    next_day = today+timedelta(days=n_forecast)
+    next_day = today+timedelta(days=1)
     df_f['Date'] = pd.bdate_range(next_day,periods=n_forecast)
     plot_forecast()
     
