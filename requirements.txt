@@ -83,5 +83,5 @@ watchdog==3.0.0
 webencodings==0.5.1
 Werkzeug==3.0.0
 wrapt==1.14.1
-yfinance==0.2.30
+yfinance==0.2.28
 zipp==3.17.0
